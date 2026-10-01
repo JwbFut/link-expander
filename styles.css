@@ -12,6 +12,11 @@ body {
   padding: 1em;
   line-height: 1.4;
   hyphens: auto;
+  /* A destination or a seed is one unbreakable token, and both can be very
+     long: without this the page grows wider than the viewport and picks up a
+     horizontal scrollbar. `break-word` — not `break-all` — so text that does
+     fit still wraps at its own spaces, `/`, `?` and `&`. */
+  overflow-wrap: break-word;
 }
 
 a { color: #07a; }
