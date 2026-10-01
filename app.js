@@ -42,6 +42,7 @@ const STRINGS = {
       'Up to 8192 characters works. Past 2000, some browsers, chat apps and mail clients start truncating, ' +
       'and the page warns you when you go that far. The destination has to be an http:// or https:// link.',
     credit: 'Plain HTML, CSS and JS, no tracking. Styled after ',
+    repo: 'Source on GitHub',
     redirectTitle: 'Taking you there…',
     redirectManual: 'If nothing happens, open this link:',
     redirectEdited:
@@ -91,6 +92,7 @@ const STRINGS = {
       '最长支持 8192 个字符；超过 2000 时，部分浏览器、聊天软件和邮件客户端会开始截断，到那一步页面会提醒你。' +
       '目标地址必须以 http:// 或 https:// 开头。',
     credit: '纯 HTML、CSS 和 JS，没有任何追踪。风格参照 ',
+    repo: 'GitHub 源码',
     redirectTitle: '正在跳转…',
     redirectManual: '如果没有自动跳转，请打开这个链接：',
     redirectEdited: '这个链接中途被改过：噪音和种子对不上，目标地址可能不是发送者原本的意思。',
@@ -183,6 +185,7 @@ function applyLanguage() {
   $('how-body').textContent = strings.howBody;
   $('limits-body').textContent = strings.limitsBody;
   $('credit-text').textContent = strings.credit;
+  $('credit-repo').textContent = strings.repo;
   $('redirect-note').textContent = strings.redirectEdited;
   $('redirect-home').textContent = strings.home;
   $('lang').textContent = lang === 'en' ? '中文' : 'English';
