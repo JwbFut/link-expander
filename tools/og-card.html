@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Link Expander — Open Graph card</title>
+<!--
+  Source for og.png (1200x630), the social card declared in index.html.
+  It is not part of the deployed site. Regenerate after editing with:
+
+    npx playwright@latest screenshot \
+      --viewport-size=1200,630 --wait-for-timeout=500 \
+      tools/og-card.html og.png
+
+  (or any headless browser pointed at this file at 1200x630).
+-->
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    padding: 72px 80px;
+    background: #fff;
+    color: #454545;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  h1 { font-size: 84px; margin: 0 0 12px; letter-spacing: -1px; }
+  .tagline { font-size: 34px; margin: 0; color: #454545; }
+  .url {
+    font-family: ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+    font-size: 25px;
+    line-height: 1.5;
+    color: #666;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 20px 24px;
+    word-break: break-all;
+  }
+  .url b { color: #07a; font-weight: 400; }
+  .foot { font-size: 26px; color: #888; }
+</style>
+</head>
+<body>
+  <div>
+    <h1>Link Expander</h1>
+    <p class="tagline">Plenty of people try to make links shorter.<br>So what if one is longer?</p>
+  </div>
+  <p class="url"><b>https://linkexpander.thebestmotherfuckingweb.site/</b>I1BKwsw3WtDoMwDl8HRq13VL-a7U1zQs_fKeSWG4YwNi-kOJKMcdzpHuVtIZQqZSNDCNl81CB11VWe</p>
+  <p class="foot">Pick a link, a seed and a length. Get the same length back, protocol included.</p>
+</body>
+</html>

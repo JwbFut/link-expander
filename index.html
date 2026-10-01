@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link Expander — make any link as long as you want</title>
+<meta name="description" content="Turn any link into a much longer one of exactly the length you ask for, protocol included. Plenty of people try to make links shorter — so what if one is longer?">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://linkexpander.thebestmotherfuckingweb.site/">
+
+<!-- Social cards -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Link Expander">
+<meta property="og:url" content="https://linkexpander.thebestmotherfuckingweb.site/">
+<meta property="og:title" content="Link Expander — make any link as long as you want">
+<meta property="og:description" content="Turn any link into a much longer one of exactly the length you ask for, protocol included. Plenty of people try to make links shorter — so what if one is longer?">
+<meta property="og:image" content="https://linkexpander.thebestmotherfuckingweb.site/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Link Expander — plenty of people try to make links shorter. So what if one is longer?">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Link Expander — make any link as long as you want">
+<meta name="twitter:description" content="Turn any link into a much longer one of exactly the length you ask for, protocol included.">
+<meta name="twitter:image" content="https://linkexpander.thebestmotherfuckingweb.site/og.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Link Expander",
+  "alternateName": "链接加长器",
+  "url": "https://linkexpander.thebestmotherfuckingweb.site/",
+  "description": "Turn any link into a much longer link of exactly the length you ask for, protocol included. The extra characters are meaningless noise that pads the link out, and opening it goes to your destination.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any web browser",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": ["en", "zh-Hans"],
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script>
+// Decided before the app boots: a generated link is not the generator page, so
+// hide the generator immediately instead of flashing it. Crawlers that do not
+// run JavaScript still get the full page content below.
+if (location.pathname.replace(/\/+$/, '').length > 0 && !/^\/(index\.html)?$/.test(location.pathname)) {
+  document.documentElement.className = 'deep-link';
+}
+</script>
+</head>
+<body>
+<button id="lang" class="toggle" type="button" aria-label="Switch language / 切换语言">中文</button>
+
+<noscript>
+  <p>This page is a tiny single-page app: the form needs JavaScript to build a link. /
+  本页是一个小型单页应用，生成链接需要 JavaScript。</p>
+</noscript>
+
+<main>
+  <section id="view-generator">
+    <h1 id="title">Link Expander</h1>
+    <p class="st" id="subtitle">Plenty of people try to make links shorter. So what if one is longer?</p>
+
+    <form id="form" novalidate>
+      <p>
+        <label for="target" id="label-target">Link to expand</label>
+        <input id="target" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="https://example.com">
+      </p>
+      <p>
+        <label for="seed" id="label-seed">Random seed (optional)</label>
+        <input id="seed" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="leave empty for a random one">
+      </p>
+      <p>
+        <label for="length" id="label-length">Total length, protocol included (characters)</label>
+        <input id="length" type="number" inputmode="numeric" min="1" step="1" value="128">
+      </p>
+      <p><button type="submit" id="submit">Expand</button></p>
+    </form>
+
+    <p id="message" class="message" role="alert" aria-live="polite" hidden></p>
+
+    <section id="result" hidden>
+      <p><label for="output" id="label-result">Your very long link</label></p>
+      <textarea id="output" rows="3" readonly spellcheck="false"></textarea>
+      <p class="meta">
+        <button type="button" id="copy">Copy</button>
+        <span id="count" class="count"></span>
+      </p>
+      <p><a id="open" href="#" rel="noopener">Open it to check that it works</a></p>
+    </section>
+
+    <h2 id="how-title">How does it work?</h2>
+    <p id="how-body">Only a handful of characters carry your destination and the seed; everything else is
+      noise derived from that seed, padding the link out to the exact length you asked for. The same
+      destination, seed and length always rebuild the identical link, so nothing is lost on the way — and
+      opening the link goes to your destination.</p>
+    <p id="limits-body">Up to 8192 characters works. Past 2000, some browsers, chat apps and mail clients
+      start truncating, and the page warns you when you go that far. The destination has to be an
+      http:// or https:// link.</p>
+    <p class="credit"><span id="credit-text">Plain HTML, CSS and JS, no tracking. Styled after </span><a
+      href="https://thebestmotherfuckingweb.site" rel="noopener">thebestmotherfuckingweb.site</a></p>
+  </section>
+
+  <section id="view-redirect" hidden>
+    <h1 id="redirect-title">Taking you there…</h1>
+    <p id="redirect-manual">If nothing happens, open this link:</p>
+    <p><a id="redirect-link" href="#"></a></p>
+    <p id="redirect-note" class="message" hidden></p>
+    <p class="credit"><a id="redirect-home" href="./">← Link Expander</a></p>
+  </section>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

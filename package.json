@@ -1,0 +1,12 @@
+{
+  "name": "link-expander",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Expand any link to exactly the length you want. Static bilingual SPA for GitHub Pages.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/link.test.mjs",
+    "start": "node tools/dev-server.mjs 8080"
+  }
+}

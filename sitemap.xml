@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  One canonical page: the language is a client-side preference (?lang=en|zh), so
+  there are no per-language URLs to list here or to point hreflang at.
+  Generated links are deliberately absent: they are random, infinite in number,
+  and answered with a 404 status plus a client-side redirect.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://linkexpander.thebestmotherfuckingweb.site/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

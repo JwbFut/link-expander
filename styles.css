@@ -1,0 +1,108 @@
+/* Link Expander — deliberately boring. Inspired by thebestmotherfuckingweb.site. */
+
+:root { color-scheme: light dark; }
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #454545;
+  background: #fff;
+  font-size: 16px;
+  margin: 2em auto;
+  max-width: 800px;
+  padding: 1em;
+  line-height: 1.4;
+  hyphens: auto;
+}
+
+a { color: #07a; }
+a:visited { color: #941352; }
+
+h1 { font-size: 1.7em; }
+h2 { font-size: 1.2em; margin-top: 2em; }
+p.st { margin-top: -1em; }
+
+/* A generated link is not the generator page: index.html decides this before
+   the app boots, so the form never flashes before the redirect. */
+.deep-link #view-generator { display: none; }
+
+label { display: block; margin-bottom: .2em; }
+
+input[type="text"],
+input[type="number"],
+textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  padding: .4em;
+  max-width: 100%;
+}
+
+input[type="text"] { width: 100%; box-sizing: border-box; }
+input[type="number"] { width: 8em; }
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .85em;
+  word-break: break-all;
+  resize: vertical;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: #f0f0f0;
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: .3em .8em;
+  cursor: pointer;
+}
+
+button:hover { background: #e4e4e4; }
+button:active { background: #d8d8d8; }
+
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible { outline: 2px solid #07a; outline-offset: 1px; }
+
+.toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: .8em;
+  padding: 2px 6px;
+  text-decoration: underline;
+}
+
+.message {
+  border-left: 3px solid #c0392b;
+  padding-left: .6em;
+  color: #c0392b;
+}
+
+.message.ok { border-left-color: #1a7f37; color: #1a7f37; }
+
+.meta { margin: .6em 0; }
+.count { color: #777; font-size: .85em; margin-left: .4em; }
+.credit { font-size: .8em; color: #777; margin-top: 2em; }
+
+@media screen and (max-width: 1080px) {
+  .toggle { position: absolute; }
+}
+
+@media (prefers-color-scheme: dark) {
+  body { color: #d9d9d9; background: #000; }
+  a { color: #00a2e7; }
+  a:visited { color: #ca1a70; }
+  input[type="text"], input[type="number"], textarea { border-color: #555; }
+  button { background: #222; border-color: #666; }
+  button:hover { background: #2c2c2c; }
+  button:active { background: #383838; }
+  .message { border-left-color: #d24637; color: #d24637; }
+  .message.ok { border-left-color: #4caf50; color: #4caf50; }
+  .count, .credit { color: #999; }
+}
